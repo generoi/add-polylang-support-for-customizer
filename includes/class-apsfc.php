@@ -38,12 +38,12 @@ class Apsfc
 		/**
 		 * Force "The language is set from content" (in Language->Settings->URL modifications)
 		 */
-		if (get_option('apsfc_force_lang') == "on") {
-			if (isset($options['force_lang']) && 0 !== $options['force_lang']) {
-				$options['force_lang'] = 0;
-				update_option('polylang', $options);
-			}
-		}
+		// if (get_option('apsfc_force_lang') == "on") {
+		// 	if (isset($options['force_lang']) && 0 !== $options['force_lang']) {
+		// 		$options['force_lang'] = 0;
+		// 		update_option('polylang', $options);
+		// 	}
+		// }
 
 		/**
 		 * Disable detect browser language, will return default language instead.
@@ -136,7 +136,7 @@ class Apsfc
 		$current_language = pll_current_language();
 		$theme_slug       = get_option('template');
 		$option_prefix    = \str_replace('-', '_', $theme_slug);
-		$option_name      = $option_prefix . '_apsfc_settings_' . $current_language;
+		$option_name      = $option_prefix . '_customizer_polylang_settings_' . $current_language;
 
 		return get_option($option_name, false);
 	}
@@ -153,7 +153,7 @@ class Apsfc
 		$current_language = pll_current_language();
 		$theme_slug       = get_option('template');
 		$option_prefix    = \str_replace('-', '_', $theme_slug);
-		$option_name      = $option_prefix . '_apsfc_settings_' . $current_language;
+		$option_name      = $option_prefix . '_customizer_polylang_settings_' . $current_language;
 
 		return update_option($option_name, $data);
 	}
